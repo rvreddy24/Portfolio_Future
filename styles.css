@@ -798,8 +798,8 @@ section {
 }
 
 .ai-agent-bubble:hover {
-    transform: scale(1.1) rotate(10deg);
-    box-shadow: 0 0 30px rgba(0, 240, 255, 0.7);
+    transform: scale(1.1);
+    box-shadow: 0 0 35px rgba(0, 240, 255, 0.85);
 }
 
 .ai-agent-bubble i {
