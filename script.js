@@ -296,9 +296,82 @@ function getAIAgentResponse(text) {
     return "Query parsed. However, that specific dataset falls outside my local core profile. Try asking about his 'Ph.D. Research', 'Select Projects', or 'Technical Arsenal'!";
 }
 
+// Neural Canvas Visualizer
+function initNeuralCanvas() {
+    const canvas = document.getElementById('neuralCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    
+    // Resize canvas
+    function resize() {
+        if (!canvas) return;
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width * (window.devicePixelRatio || 1);
+        canvas.height = rect.height * (window.devicePixelRatio || 1);
+        ctx.scale(window.devicePixelRatio || 1, window.devicePixelRatio || 1);
+    }
+    
+    resize();
+    window.addEventListener('resize', resize);
+    
+    let phase = 0;
+    function animate() {
+        if (!canvas) return;
+        const rect = canvas.getBoundingClientRect();
+        const width = rect.width;
+        const height = rect.height;
+        ctx.clearRect(0, 0, width, height);
+        
+        // Draw digital matrix grid background
+        ctx.strokeStyle = 'rgba(0, 240, 255, 0.04)';
+        ctx.lineWidth = 1;
+        for (let i = 0; i < width; i += 20) {
+            ctx.beginPath();
+            ctx.moveTo(i, 0);
+            ctx.lineTo(i, height);
+            ctx.stroke();
+        }
+        for (let j = 0; j < height; j += 15) {
+            ctx.beginPath();
+            ctx.moveTo(0, j);
+            ctx.lineTo(width, j);
+            ctx.stroke();
+        }
+        
+        // Render 3 fluid harmonic waves
+        const waves = [
+            { amplitude: 15, frequency: 0.015, speed: 0.03, color: 'rgba(0, 255, 102, 0.65)' }, // Academic Green
+            { amplitude: 10, frequency: 0.022, speed: 0.06, color: 'rgba(191, 90, 242, 0.5)' },  // Skills Purple
+            { amplitude: 6, frequency: 0.030, speed: 0.08, color: 'rgba(0, 240, 255, 0.45)' }    // Cyber Cyan
+        ];
+        
+        waves.forEach(wave => {
+            ctx.beginPath();
+            ctx.strokeStyle = wave.color;
+            ctx.lineWidth = wave === waves[0] ? 2 : 1;
+            
+            for (let x = 0; x < width; x++) {
+                const y = height / 2 + Math.sin(x * wave.frequency + phase * wave.speed) * wave.amplitude;
+                if (x === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.stroke();
+        });
+        
+        phase++;
+        requestAnimationFrame(animate);
+    }
+    
+    animate();
+}
+
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
     loadProjects();
     initTerminal();
     initAIAgent();
+    initNeuralCanvas();
 });

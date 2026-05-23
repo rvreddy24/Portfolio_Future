@@ -1127,3 +1127,116 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* Premium Sci-Fi HUD Decorations & Telemetry */
+
+/* 1. Fixed High-Tech Side Telemetry Ribbons */
+.hud-side-ribbon {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    font-family: var(--font-mono);
+    font-size: 8px;
+    letter-spacing: 4px;
+    color: rgba(0, 240, 255, 0.22);
+    z-index: 100;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+}
+
+.left-ribbon {
+    left: -190px;
+    transform-origin: center right;
+}
+
+.right-ribbon {
+    right: -190px;
+    transform-origin: center left;
+    transform: translateY(-50%) rotate(90deg);
+}
+
+.hud-bracket {
+    color: var(--accent-cyber);
+    font-weight: 900;
+    opacity: 0.5;
+}
+
+.hud-text {
+    animation: textPulse 4s infinite ease-in-out;
+}
+
+@keyframes textPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; color: var(--accent-cyber); }
+}
+
+/* 2. High-Tech HUD Reticles & Corner Accents */
+.hud-corner-reticle {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid rgba(0, 240, 255, 0.15);
+    pointer-events: none;
+    opacity: 0.6;
+    z-index: 2;
+}
+
+.hud-corner-reticle.top-left {
+    top: 16px;
+    left: 16px;
+    border-right: none !important;
+    border-bottom: none !important;
+}
+
+.hud-corner-reticle.top-right {
+    top: 16px;
+    right: 16px;
+    border-left: none !important;
+    border-bottom: none !important;
+}
+
+.hud-corner-reticle.bottom-left {
+    bottom: 16px;
+    left: 16px;
+    border-right: none !important;
+    border-top: none !important;
+}
+
+.hud-corner-reticle.bottom-right {
+    bottom: 16px;
+    right: 16px;
+    border-left: none !important;
+    border-top: none !important;
+}
+
+/* 3. Cyber separations rules */
+.cyber-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.1) 20%, rgba(0, 240, 255, 0.3) 50%, rgba(0, 240, 255, 0.1) 80%, transparent);
+    position: relative;
+    margin: 70px 0;
+}
+
+.cyber-divider::after {
+    content: '[ SYS_INTEGRATION_LOOP_OK // RAJV_DATA_OS ]';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--bg-color);
+    padding: 0 16px;
+    font-family: var(--font-mono);
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: rgba(0, 240, 255, 0.35);
+}
+
+/* Responsive side ribbons logic */
+@media (max-width: 1300px) {
+    .hud-side-ribbon {
+        display: none !important;
+    }
+}

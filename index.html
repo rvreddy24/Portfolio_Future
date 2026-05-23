@@ -16,6 +16,18 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Left/Right High-Tech Side Telemetry Ribbons -->
+    <div class="hud-side-ribbon left-ribbon">
+        <span class="hud-bracket">[</span>
+        <span class="hud-text">SYS_STATUS: ONLINE // CORE_HANDSHAKE: ENGAGED // PORT: 8000</span>
+        <span class="hud-bracket">]</span>
+    </div>
+    <div class="hud-side-ribbon right-ribbon">
+        <span class="hud-bracket">[</span>
+        <span class="hud-text">VARSHITH_AI_v1.0 // LAT: 38.9515 N // LON: 92.3283 W</span>
+        <span class="hud-bracket">]</span>
+    </div>
+
     <!-- Cyberpunk backdrop glows -->
     <div class="glow-orb orb-cyan"></div>
     <div class="glow-orb orb-purple"></div>
@@ -123,6 +135,8 @@ Type 'help' to unlock system pathways or query core profiles.</div>
         </div>
     </section>
 
+    <div class="cyber-divider" data-aos="fade-up"></div>
+
     <!-- Skills Section (Bento Grid) -->
     <section id="skills" style="background: rgba(255,255,255,0.03);">
         <div class="container">
@@ -161,9 +175,33 @@ Type 'help' to unlock system pathways or query core profiles.</div>
                         <span style="background:rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 20px; font-size: 14px;">Arduino</span>
                     </div>
                 </div>
+
+                <!-- Real-Time Telemetry Visualizer Card -->
+                <div class="bento-card subject-academic" data-aos="fade-up" data-aos-delay="300" style="grid-column: span 2; display: flex; flex-direction: column; justify-content: space-between; min-height: 240px; position: relative;">
+                    <!-- High-tech corners -->
+                    <div class="hud-corner-reticle top-left"></div>
+                    <div class="hud-corner-reticle top-right"></div>
+                    <div class="hud-corner-reticle bottom-left"></div>
+                    <div class="hud-corner-reticle bottom-right"></div>
+                    
+                    <div>
+                        <div class="bento-hud-tag">SIGNAL_FEED // ACTIVE</div>
+                        <h3 class="card-title" style="margin-bottom: 8px;">Neural Signal Telemetry</h3>
+                        <p class="card-desc" style="font-size: 13px; line-height: 1.5; color: #a1a1aa; margin-bottom: 12px;">Dynamic mathematical wave processing showing active cognitive signal integration flows.</p>
+                    </div>
+                    <div style="flex-grow: 1; position: relative; width: 100%; height: 90px; margin: 8px 0; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.03); border-radius: 8px; overflow: hidden;">
+                        <canvas id="neuralCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
+                    </div>
+                    <div style="font-family: var(--font-mono); font-size: 9px; color: var(--accent-cyber); display: flex; justify-content: space-between; opacity: 0.8; letter-spacing: 1px;">
+                        <span>FREQUENCY: 50.4 Hz</span>
+                        <span>LINK_RATE: 99.8% // STATUS: ACTIVE</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <div class="cyber-divider" data-aos="fade-up"></div>
 
     <!-- Projects Section -->
     <section id="projects">
@@ -175,7 +213,9 @@ Type 'help' to unlock system pathways or query core profiles.</div>
             </div>
         </div>
     </section>
-    
+
+    <div class="cyber-divider" data-aos="fade-up"></div>
+
     <!-- Certifications -->
      <section id="certifications" style="background: rgba(255,255,255,0.03);">
         <div class="container">
@@ -200,6 +240,8 @@ Type 'help' to unlock system pathways or query core profiles.</div>
              </div>
         </div>
      </section>
+
+    <div class="cyber-divider" data-aos="fade-up"></div>
 
     <!-- Contact Section -->
     <section id="contact" style="background: radial-gradient(circle at bottom, #111 0%, #000 70%); border-top: 1px solid rgba(255,255,255,0.03);">
